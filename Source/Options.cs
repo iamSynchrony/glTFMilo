@@ -18,7 +18,7 @@ namespace glTFMilo.Source
         [Option("platform", Required = true, HelpText = "Target platform (xbox/ps3). Default is Xbox.")]
         public string Platform { get; set; }
 
-        [Option('g', "game", Required = false, HelpText = "MiloGame (rb3, rb2, tbrb). Default is rb3.")]
+        [Option('g', "game", Required = false, HelpText = "MiloGame (rb3, rb2, rb1, tbrb). Default is rb3.")]
         public string Game { get; set; } = "rb3";
 
         [Option("prelit", Required = false, HelpText = "Whether or not Materials should be pre-lit.")]

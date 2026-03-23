@@ -64,6 +64,10 @@ namespace MiloGLTFUtils.Source.glTFMilo
             {
                 selectedGame = MiloGame.RockBand2;
             }
+            else if (gameArg == "rb1")
+            {
+                selectedGame = MiloGame.RockBand1;
+            }
             else
             {
                 Logger.Warn("Invalid game specified. Defaulting to Rock Band 3.");
@@ -738,8 +742,8 @@ namespace MiloGLTFUtils.Source.glTFMilo
                         }
                         else if (hasAlpha)
                         {
-                            mat.alphaCut = false;
-                            mat.alphaWrite = true;
+                            mat.alphaCut = true;
+                            mat.alphaWrite = false;
                             mat.blend = RndMat.Blend.kBlendSrcAlpha;
                         }
                         else
@@ -972,9 +976,14 @@ namespace MiloGLTFUtils.Source.glTFMilo
                 }
 
 
-                if (specularColor != null)
+                // only use specularRGB on rb3 as it is way too bright on earlier titles
+                if ((specularColor != null) && (selectedGame == MiloGame.RockBand3 || selectedGame == MiloGame.DanceCentral1))
                 {
                     mat.specularRGB = new HmxColor3(specularColor.Value.Color.X, specularColor.Value.Color.Y, specularColor.Value.Color.Z);
+                }
+                else
+                {
+                    mat.specularRGB = new HmxColor3(0.0f, 0.0f, 0.0f);
                 }
 
                 var specularFactor = material.FindChannel("SpecularFactor");
