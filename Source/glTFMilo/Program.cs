@@ -688,7 +688,7 @@ namespace MiloGLTFUtils.Source.glTFMilo
                     mat.normalDetailTiling = 1.0f;
                     mat.rimPower = 0.0f;
                     mat.specular2Power = 0.0f;
-                    mat.rimRGB = new HmxColor3(0.0f, 0.0f, 0.0f, 0.0f);
+                    mat.rimRGB = new HmxColor3(0.0f, 0.0f, 0.0f);
                     mat.rimPower = 4.0f;
                     mat.specularPower = 0.0f;
                     mat.specular2Power = 0.0f;
@@ -974,7 +974,7 @@ namespace MiloGLTFUtils.Source.glTFMilo
 
                 if (specularColor != null)
                 {
-                    mat.specularRGB = new HmxColor3(specularColor.Value.Color.X, specularColor.Value.Color.Y, specularColor.Value.Color.Z, specularColor.Value.Color.W);
+                    mat.specularRGB = new HmxColor3(specularColor.Value.Color.X, specularColor.Value.Color.Y, specularColor.Value.Color.Z);
                 }
 
                 var specularFactor = material.FindChannel("SpecularFactor");
