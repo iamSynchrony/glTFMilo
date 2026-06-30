@@ -668,7 +668,7 @@ namespace MiloGLTFUtils.Source.glTFMilo
                     mat.perPixelLit = true;
                     if (opts.Prelit != "false")
                     {
-                        mat.preLit = true;
+                        mat.useEnviron = true; //
                     }
                     mat.pointLights = true;
                     mat.projLights = true;
